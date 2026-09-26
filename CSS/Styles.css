@@ -1,0 +1,208 @@
+/* ========================================
+   1. Design variables
+   ======================================== */
+
+:root {
+    --color-primary: #006b8f;
+    --color-primary-dark: #004f6b;
+    --color-accent: #c62828;
+    --color-background: #f4f7f9;
+    --color-surface: #ffffff;
+    --color-text: #1f2933;
+    --color-text-light: #52606d;
+    --color-border: #d9e2ec;
+    --color-focus: #f4b400;
+
+    --page-width: 1200px;
+    --border-radius: 10px;
+    --shadow: 0 4px 14px rgba(31, 41, 51, 0.08);
+}
+
+/* ========================================
+   2. Basic reset
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* ========================================
+   3. Shared layout
+   ======================================== */
+
+.container {
+    width: min(100% - 32px, var(--page-width));
+    margin-inline: auto;
+}
+
+/* ========================================
+   4. Header
+   ======================================== */
+
+.site-header {
+    padding: 48px 0;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-primary-dark),
+            var(--color-primary)
+        );
+}
+
+.organization-name {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+}
+
+.project-description {
+    max-width: 650px;
+    margin: 16px 0 0;
+    font-size: 1.1rem;
+    color: #e3f2f7;
+}
+
+/* ========================================
+   5. Navigation
+   ======================================== */
+
+.main-navigation {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+}
+
+.main-navigation .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-block: 12px;
+}
+
+.main-navigation a {
+    display: inline-block;
+    padding: 10px 14px;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.main-navigation a:hover {
+    color: #ffffff;
+    background-color: var(--color-primary);
+}
+
+.main-navigation a:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   6. Main page sections
+   ======================================== */
+
+main {
+    padding-block: 40px;
+}
+
+.page-section {
+    margin-bottom: 24px;
+    padding: 28px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.page-section h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--color-primary-dark);
+    font-size: 1.6rem;
+}
+
+.page-section h2::after {
+    display: block;
+    width: 52px;
+    height: 4px;
+    margin-top: 8px;
+    content: "";
+    background-color: var(--color-accent);
+    border-radius: 2px;
+}
+
+.page-section p {
+    margin-bottom: 0;
+    color: var(--color-text-light);
+}
+
+.system-message {
+    margin-top: 20px;
+    padding: 12px 16px;
+    color: #14532d;
+    font-weight: 700;
+    background-color: #dcfce7;
+    border: 1px solid #86efac;
+    border-left: 5px solid #16a34a;
+    border-radius: 6px;
+}
+
+/* ========================================
+   7. Footer
+   ======================================== */
+
+.site-footer {
+    padding: 24px 0;
+    color: #ffffff;
+    text-align: center;
+    background-color: var(--color-primary-dark);
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* ========================================
+   8. Small-screen adjustments
+   ======================================== */
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 36px 0;
+    }
+
+    .main-navigation .container {
+        flex-direction: column;
+    }
+
+    .main-navigation a {
+        width: 100%;
+    }
+
+    .page-section {
+        padding: 20px;
+    }
+}
