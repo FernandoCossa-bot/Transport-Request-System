@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tzu Chi Mozambique Transport Request System — educational prototype">
+  <title>Plan a journey | Tzu Chi Transport</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="./js/ui.js" defer></script>
+</head>
+<body data-page="new-request">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <aside class="sidebar">
+    <a href="./index.html" class="brand" aria-label="Tzu Chi Transport homepage"><span class="brand-mark">t<span>c</span></span><span>Tzu Chi<small>TRANSPORT WORKSPACE</small></span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <nav class="page-nav" aria-label="Main navigation">
+      <a href="./index.html"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg><span>Homepage</span></a>
+      <a href="./vehicles.html"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="m4 10 2-5h12l2 5v9H4V10ZM4 11h16M7 19v2m10-2v2M7 15h2m6 0h2"/></svg><span>Vehicles</span></a>
+      <a href="./new-request.html" aria-current="page"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 12h8m-4-4v8"/></svg><span>New request</span><span class="nav-dot" aria-hidden="true"></span></a>
+      <a href="./requests.html"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6m-6 4h6m-6 4h4"/></svg><span>Requests</span></a>
+    </nav>
+    <div class="sidebar-bottom"><div class="sidebar-note"><span class="tiny-label">BUILT AROUND PEOPLE</span><strong>Every journey<br>has a purpose.</strong><p>A clearer way to support your team on the move.</p></div><p class="prototype-label"><span></span> Classroom prototype</p></div>
+  </aside>
+  <header class="topbar">
+    <div class="topbar-identity"><span>TZU CHI FOUNDATION</span><strong>Mozambique / Transport</strong></div>
+    <div class="topbar-actions"><span class="demo-label">Fictional data only</span><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">Change theme</button></div>
+  </header>
+  <main id="main-content" class="workspace" tabindex="-1">
+    <div class="page-heading"><div><p class="eyebrow">TRANSPORT / NEW REQUEST</p><h1>Plan a journey</h1><p>Choose a schedule, check availability and reserve the right vehicle.</p></div><div class="heading-action"><a class="button secondary" href="./requests.html">View requests <span aria-hidden="true">↗</span></a></div></div>
+    <p class="connection-message" id="connection-status" role="status">Loading this page...</p>
+    <section id="new-request" class="request-page">
+    <h2 class="sr-only">New Transport Request</h2>
+    <p>Use fictional information only. All journey times use Mozambique time (UTC+02:00).</p>
+
+    <form id="request-form">
+        <!-- 1. Identify the requester and the activity. -->
+        <fieldset>
+            <legend>Requester details</legend>
+
+            <p>
+                <label for="requester-name">Requester name</label>
+                <input id="requester-name" name="requester_name" type="text" required>
+            </p>
+
+            <p>
+                <label for="request-department">Department</label>
+                <select id="request-department" name="department" required>
+                    <option value="">Select a department</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Health">Health</option>
+                    <option value="Education">Education</option>
+                    <option value="Administration">Administration</option>
+                    <option value="Relief">Relief</option>
+                    <option value="Other">Other</option>
+                </select>
+            </p>
+
+            <p id="other-department-field" hidden>
+                <label for="other-department">Other department</label>
+                <input id="other-department" name="other_department" type="text" disabled>
+            </p>
+
+            <p>
+                <label for="request-program">Program or project</label>
+                <select id="request-program" name="program_project" required>
+                    <option value="">Select a program or project</option>
+                    <option value="Warehouse Support">Warehouse Support</option>
+                    <option value="Mobile Clinic">Mobile Clinic</option>
+                    <option value="School Support">School Support</option>
+                    <option value="Office Support">Office Support</option>
+                    <option value="Community Outreach">Community Outreach</option>
+                    <option value="Food Distribution">Food Distribution</option>
+                    <option value="Volunteer Training">Volunteer Training</option>
+                    <option value="Supply Collection">Supply Collection</option>
+                    <option value="Partner Meeting">Partner Meeting</option>
+                    <option value="Medicine Delivery">Medicine Delivery</option>
+                    <option value="Site Assessment">Site Assessment</option>
+                    <option value="Materials Delivery">Materials Delivery</option>
+                    <option value="Equipment Transfer">Equipment Transfer</option>
+                    <option value="Staff Transport">Staff Transport</option>
+                    <option value="Other">Other</option>
+                </select>
+            </p>
+
+            <p id="other-program-field" hidden>
+                <label for="other-program">Other program or project</label>
+                <input id="other-program" name="other_program_project" type="text" disabled>
+            </p>
+        </fieldset>
+
+        <!-- 2. Record the route and purpose. -->
+        <fieldset>
+            <legend>Journey details</legend>
+
+            <p>
+                <label for="request-origin">Origin</label>
+                <input id="request-origin" name="origin" type="text" required>
+            </p>
+
+            <p>
+                <label for="request-destination">Destination</label>
+                <input id="request-destination" name="destination" type="text" required>
+            </p>
+
+            <p>
+                <label for="request-stops">Stops or itinerary (optional)</label>
+                <textarea id="request-stops" name="stops" rows="3"
+                    placeholder="Matola Warehouse - 30 minutes"></textarea>
+            </p>
+
+            <p>
+                <label for="request-purpose">Purpose</label>
+                <textarea id="request-purpose" name="purpose" rows="3" required></textarea>
+            </p>
+        </fieldset>
+
+        <!-- 3. JavaScript calculates the expected return from this schedule. -->
+        <fieldset>
+            <legend>Schedule</legend>
+
+            <p>
+                <label for="request-start">Start date and time (Mozambique, UTC+02:00)</label>
+                <input id="request-start" name="start_at" type="datetime-local" step="60" required>
+            </p>
+
+            <p>
+                <label for="activity-duration">Activity duration (minutes)</label>
+                <input id="activity-duration" name="activity_duration_minutes"
+                    type="number" min="1" max="2147483647" step="1" value="60" required>
+            </p>
+
+            <p>
+                <label for="travel-buffer">Travel buffer (total travel minutes)</label>
+                <input id="travel-buffer" name="travel_buffer_minutes"
+                    type="number" min="0" max="2147483647" step="1" value="30" required>
+            </p>
+
+            <p>
+                <label for="expected-return">Expected return (Mozambique time)</label>
+                <output id="expected-return" for="request-start activity-duration travel-buffer"
+                    aria-live="polite">The return time will be calculated automatically.</output>
+            </p>
+        </fieldset>
+
+        <!-- 4. Vehicle options will come from Supabase, not hard-coded IDs. -->
+        <fieldset>
+            <legend>Passengers and vehicle</legend>
+
+            <p>
+                <label for="passenger-count">Number of passengers</label>
+                <input id="passenger-count" name="passenger_count" type="number"
+                    min="1" max="2147483647" step="1" value="1" required>
+            </p>
+
+            <p>
+                <label for="passenger-names">Passenger names</label>
+                <textarea id="passenger-names" name="passenger_names" rows="3"
+                    aria-describedby="passenger-help" required></textarea>
+            </p>
+            <p id="passenger-help">
+                Separate names with commas. Enter one name per passenger.
+                For 8 or more passengers, you may enter Various instead.
+            </p>
+
+            <p>
+                <label for="request-vehicle">Available vehicle</label>
+                <select id="request-vehicle" name="vehicle_id"
+                    aria-describedby="vehicle-availability-message" required disabled>
+                    <option value="">Enter journey details to check available vehicles</option>
+                </select>
+            </p>
+            <p id="vehicle-availability-message" role="status">
+                Vehicle availability will use the schedule, passenger count, and vehicle condition.
+            </p>
+        </fieldset>
+
+        <!-- 5. These status values match the database validation rules. -->
+        <p>
+            <label for="request-status">Request status</label>
+            <select id="request-status" name="status" aria-describedby="request-status-help" required>
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Postponed">Postponed</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </p>
+        <p id="request-status-help">
+            For a Postponed request, enter the revised start date and time above.
+        </p>
+
+        <button type="submit" id="save-request-button" disabled>Save request</button>
+        <p id="request-form-message" role="status">
+            Loading the request form...
+        </p>
+    </form><a href="./requests.html" id="saved-request-link" class="button secondary saved-link" hidden>View saved requests ↗</a>
+</section>
+  </main>
+  <footer class="site-footer"><span>Purpose in every journey.</span><span>Phase One · Fictional information only</span></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
+

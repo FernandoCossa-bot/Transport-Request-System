@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tzu Chi Mozambique Transport Request System — educational prototype">
+  <title>Transport requests | Tzu Chi Transport</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="./js/ui.js" defer></script>
+</head>
+<body data-page="requests">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <aside class="sidebar">
+    <a href="./index.html" class="brand" aria-label="Tzu Chi Transport homepage"><span class="brand-mark">t<span>c</span></span><span>Tzu Chi<small>TRANSPORT WORKSPACE</small></span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <nav class="page-nav" aria-label="Main navigation">
+      <a href="./index.html"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg><span>Homepage</span></a>
+      <a href="./vehicles.html"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="m4 10 2-5h12l2 5v9H4V10ZM4 11h16M7 19v2m10-2v2M7 15h2m6 0h2"/></svg><span>Vehicles</span></a>
+      <a href="./new-request.html"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 12h8m-4-4v8"/></svg><span>New request</span></a>
+      <a href="./requests.html" aria-current="page"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6m-6 4h6m-6 4h4"/></svg><span>Requests</span><span class="nav-dot" aria-hidden="true"></span></a>
+    </nav>
+    <div class="sidebar-bottom"><div class="sidebar-note"><span class="tiny-label">BUILT AROUND PEOPLE</span><strong>Every journey<br>has a purpose.</strong><p>A clearer way to support your team on the move.</p></div><p class="prototype-label"><span></span> Classroom prototype</p></div>
+  </aside>
+  <header class="topbar">
+    <div class="topbar-identity"><span>TZU CHI FOUNDATION</span><strong>Mozambique / Transport</strong></div>
+    <div class="topbar-actions"><span class="demo-label">Fictional data only</span><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">Change theme</button></div>
+  </header>
+  <main id="main-content" class="workspace" tabindex="-1">
+    <div class="page-heading"><div><p class="eyebrow">TRANSPORT / REQUESTS</p><h1>Transport requests</h1><p>Review saved journeys and the vehicles assigned to them.</p></div><div class="heading-action"><a class="button primary" href="./new-request.html">New request <span aria-hidden="true">↗</span></a></div></div>
+    <p class="connection-message" id="connection-status" role="status">Loading this page...</p>
+    <section id="requests" class="panel">
+    <h2 class="sr-only">Transport Requests</h2>
+
+    <p>
+        Saved requests and their assigned vehicles.
+        All times use Mozambique time (UTC+02:00).
+    </p>
+
+    <p>
+        <label for="request-vehicle-filter">Filter by vehicle</label>
+
+        <select id="request-vehicle-filter"
+                aria-controls="request-list" disabled>
+            <option value="">All vehicles</option>
+        </select>
+
+        <button type="button" id="refresh-requests-button">
+            Refresh requests
+        </button>
+    </p>
+
+    <p id="request-list-message" role="status">
+        Loading transport requests...
+    </p>
+
+    <div id="request-list" aria-busy="true"></div>
+        </section>
+  </main>
+  <footer class="site-footer"><span>Purpose in every journey.</span><span>Phase One · Fictional information only</span></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
+
